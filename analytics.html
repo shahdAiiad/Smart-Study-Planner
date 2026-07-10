@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartStudy - Analytics</title>
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/two.css">
+<!-- استدعاء مكتبة الرسوم البيانية Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+<button class="toggle-btn"><i class="fas fa-bars"></i></button>
+
+<div class="sidebar" id="sidebar">
+<div class="logo">
+   <a href="index.html">
+    <div class="logo-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 8.26L19 6L15.45 11.25L22 12L15.45 12.75L19 18L13.09 15.74L12 22L10.91 15.74L5 18L8.55 12.75L2 12L8.55 11.25L5 6L10.91 8.26L12 2Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+      </svg>
+    </div>
+   </a>
+    <span class="logo-text">SmartStudy</span>
+</div>
+<ul class="menu">
+    <li><a href="dashboard.html" style="color:inherit; text-decoration:none;"><i class="fas fa-home"></i> Dashboard</a></li>
+    <li><a href="courses.html" style="color:inherit; text-decoration:none;"><i class="fas fa-book"></i> Courses</a></li>
+    <li><a href="tasks.html" style="color:inherit; text-decoration:none;"><i class="fas fa-tasks"></i> Tasks</a></li>
+    <li><a href="ai-planner.html" style="color:inherit; text-decoration:none;"><i class="fas fa-robot"></i> AI Planner</a></li>
+    <li><a href="focus-room.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bullseye"></i> Focus Room</a></li>
+    <li class="active"><a href="analytics.html" style="color:inherit; text-decoration:none;"><i class="fas fa-chart-line"></i> Analytics</a></li>
+    <li><i class="fas fa-cog"></i> Settings</li>
+</ul>
+<div class="language">
+    <button><i class="fas fa-language"></i> العربية</button>
+</div>
+<div class="profile-box">
+    <div class="profile-header">
+      <div class="profile-icon">A</div>
+      <div class="profile-text">
+        <p class="profile-name">Dania aborass</p>
+        <p class="profile-email">aboradania070@gmail.com</p>
+      </div>
+    </div>
+    <div class="signout">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Sign out</span>
+    </div>
+</div>
+</div>
+
+<div class="main-content" style="padding-top: 30px; direction: rtl;">
+  
+  <div class="greeting-box" style="margin-bottom: 25px;">
+    <p class="time-text">Performance Analytics</p>
+    <p class="name-line">لوحة قياس الأداء والإنتاجية 📊📈</p>
+    <p class="sub-text">هنا تجدين تحليلاً شاملاً لدقائق التركيز التي قضيتها وعدد المهام التي أنجزتها.</p>
+  </div>
+
+  <!-- بطاقات الأداء السريع -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px;">
+    <div class="box" style="padding: 20px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52; text-align: center;">
+      <i class="fas fa-clock" style="font-size: 24px; color: #2a9d8f; margin-bottom: 10px;"></i>
+      <h4 style="margin: 5px 0; font-size: 14px; color: #ccc;">إجمالي دقائق التركيز</h4>
+      <p id="stat-focus-minutes" style="font-size: 28px; font-weight: bold; color: #fff; margin: 5px 0;">0</p>
+    </div>
+
+    <div class="box" style="padding: 20px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52; text-align: center;">
+      <i class="fas fa-check-circle" style="font-size: 24px; color: #0D6EFD; margin-bottom: 10px;"></i>
+      <h4 style="margin: 5px 0; font-size: 14px; color: #ccc;">المهام المنجزة</h4>
+      <p id="stat-completed-tasks" style="font-size: 28px; font-weight: bold; color: #fff; margin: 5px 0;">0</p>
+    </div>
+
+    <div class="box" style="padding: 20px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52; text-align: center;">
+      <i class="fas fa-percentage" style="font-size: 24px; color: #e0a800; margin-bottom: 10px;"></i>
+      <h4 style="margin: 5px 0; font-size: 14px; color: #ccc;">نسبة إتمام المهام</h4>
+      <p id="stat-completion-rate" style="font-size: 28px; font-weight: bold; color: #fff; margin: 5px 0;">0%</p>
+    </div>
+  </div>
+
+  <!-- منطقة الرسوم البيانية -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
+    
+    <!-- الرسم البياني لدقائق التركيز -->
+    <div class="box" style="padding: 20px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52;">
+      <h3 style="margin: 0 0 15px 0; font-size: 16px; color: #fff;"><i class="fas fa-history" style="color: #2a9d8f; margin-left: 8px;"></i>معدل التركيز الأسبوعي (بومودورو)</h3>
+      <div style="position: relative; height:260px; width:100%;">
+        <canvas id="focusChart"></canvas>
+      </div>
+    </div>
+
+    <!-- الرسم البياني لإنتاجية المهام -->
+    <div class="box" style="padding: 20px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52;">
+      <h3 style="margin: 0 0 15px 0; font-size: 16px; color: #fff;"><i class="fas fa-tasks" style="color: #0D6EFD; margin-left: 8px;"></i>حالة المهام الدراسية</h3>
+      <div style="position: relative; height:260px; width:100%; display: flex; justify-content: center;">
+        <canvas id="tasksChart" style="max-width: 260px;"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in — SmartStudy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="js/auth.js"></script>
+  <script src="js/translations.js"></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script>
+    const GOOGLE_CLIENT_ID = '200121641033-c1dtivdh68ue0qfi2bbjsro4b7hpik3i.apps.googleusercontent.com';    let tokenClient = null;
+
+    function initGoogle() {
+      if (typeof google === 'undefined' || !google.accounts) return;
+      tokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: GOOGLE_CLIENT_ID,
+        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+        callback: handleTokenResponse,
+        error_callback: handleAuthError,
+      });
+    }
+
+    function handleTokenResponse(response) {
+      if (!response || !response.access_token) return showError('No access token from Google.');
+      Auth.api('/api/auth/google', {
+        method: 'POST',
+        body: { access_token: response.access_token },
+      })
+        .then(({ token, user }) => {
+          Auth.saveSession(token, user);
+          window.location.href = 'dashboard.html';
+        })
+        .catch(err => showError(err.message));
+    }
+
+    function handleAuthError(err) {
+      if (err && err.type === 'popup_closed') return;
+      showError('Google sign-in failed. Make sure your Client ID is configured.');
+    }
+
+    function continueWithGoogle() {
+      if (!tokenClient) {
+        return showError(GOOGLE_CLIENT_ID.startsWith('YOUR_GOOGLE_CLIENT_ID')
+          ? 'Google Client ID not configured on the backend.'
+          : 'Google Sign-In is still loading. Try again in a second.');
+      }
+      tokenClient.requestAccessToken({ prompt: 'consent' });
+    }
+
+    async function signinWithEmail(ev) {
+      ev.preventDefault();
+      const form = ev.target;
+      const email    = form.email.value.trim();
+      const password = form.password.value;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Signing in…';
+      try {
+        const { token, user } = await Auth.api('/api/auth/signin', {
+          method: 'POST',
+          body: { email, password },
+        });
+        Auth.saveSession(token, user);
+        window.location.href = 'dashboard.html';
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.textContent = 'Sign in';
+      }
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('form-error');
+      el.textContent = msg;
+      el.style.display = 'block';
+    }
+
+    window.addEventListener('load', () => {
+      const wait = setInterval(() => {
+        if (typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
+          clearInterval(wait);
+          initGoogle();
+        }
+      }, 100);
+      if (Auth.isLoggedIn()) {
+        Auth.refreshMe().then(u => { if (u) window.location.href = 'dashboard.html'; });
+      }
+    });
+  </script>
+</head>
+<body class="signup-page">
+  <div class="language-switcher">
+    <button id="langBtn">🌐 العربية</button>
+  </div>
+
+  <header class="auth-header">
+    <a class="brand brand-center" href="index.html">
+      <span class="brand-mark brand-mark-sm">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6L12 2z"/>
+        </svg>
+      </span>
+      <span class="brand-name">SmartStudy</span>
+    </a>
+  </header>
+
+  <main class="auth-main">
+    <section class="signup-card signup-card-standalone">
+      <h1 class="signup-title signup-title-left" data-lang="welcome">Welcome back</h1>
+      <p class="signup-sub signup-sub-left"data-lang="subtitle">Sign in to continue studying smarter.</p>
+
+      <button class="btn btn-ghost btn-block btn-lg btn-google-dark" type="button" onclick="continueWithGoogle()">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path fill="#4285F4" d="M17.64 9.2c0-.638-.057-1.252-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.616z"/>
+          <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+          <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+          <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+        </svg>
+        <span data-lang="google">Continue with Google</span>
+      </button>
+
+      <div class="divider"><span data-lang="or">OR</span></div>
+
+      <div id="form-error" class="form-error" style="display:none"></div>
+
+      <form class="signup-form" onsubmit="signinWithEmail(event)">
+        <label class="field">
+          <span class="field-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 7l9 6 9-6"/>
+            </svg>
+          </span>
+          <input type="email" name="email" placeholder="Email" data-lang="email" required/>
+        </label>
+
+        <label class="field">
+          <span class="field-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="11" width="16" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 1 1 8 0v4"/>
+            </svg>
+          </span>
+          <input type="password" name="password" placeholder="Password"  data-lang="password" required/>
+        </label>
+
+        <button class="btn btn-primary btn-block btn-lg" type="submit" data-lang="signin">
+          Sign in
+        </button>
+      </form>
+
+      <p class="signup-foot">
+        <span data-lang="newHere">New here?</span> <a href="signup.html">Create an account</a>
+      </p>
+    </section>
+  </main>
+
+</body>
+</html>

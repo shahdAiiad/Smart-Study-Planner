@@ -1,0 +1,714 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0d1b2e 0%, #0a1628 50%, #0d2040 100%);
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+/*-------------------start header-------------*/
+.All{
+width: 100%;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #141d2e;
+    border-radius: 50px;
+    padding: 10px 14px 10px 14px;
+    gap: 20px;
+}
+.All header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin:0  15px;
+}
+.All header .logo .logo-icon {
+  background-color: #0D6EFD; /* الأزرق */
+  width: 40px;   /* حجم الخلفية */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  border-radius: 50%; /* يخليها دائرة */
+}
+.All .logo .logo-text{
+    font-weight:bolder;
+    font-size: 22px;
+    color: #eee;
+}
+.list  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.list  ul li a{
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    color: rgba(240, 248, 255, 0.692);
+    transition: all ease;
+}
+.list ul li a:hover{
+    color: #eee;
+}
+.btn1 a.bt {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+.btn1 a.bt:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+.btn1 a{
+  text-decoration: none;
+  color: #eee;
+}
+
+/* القائمة العادية */
+.list ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* لما الشاشة تصغر (موبايل/تابلت) تختفي القائمة */
+@media (max-width: 768px) {
+.list {
+    display: none;
+}
+}
+
+/*---------------end header------------------*/
+
+/*---------------start first hero section ---*/
+
+    /* ── HERO SECTION ── */
+
+    
+    /* ── HERO SECTION ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 56px;
+      min-height: 100vh;
+      padding: 0 20px;
+      margin-top: -40px ;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .hero-left {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 183, 0, 0.1);
+      border: 1px solid rgba(255, 183, 0, 0.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fbbf24;
+      margin-bottom: 32px;
+    }
+
+    .badge-star {
+      font-size: 12px;
+      color: #fbbf24;
+    }
+
+    /* ── HEADLINE ── */
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 22px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .highlight {
+      color: #4da8ff;
+      text-shadow:
+        0 0 8px rgba(59, 158, 255, 0.35),
+        0 0 20px rgba(59, 158, 255, 0.15);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 1.4vw, 1rem);
+      color: #8b9dbc;
+      line-height: 1.75;
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+
+    /* ── BUTTONS ── */
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      /* Subtle glowing blue button */
+      box-shadow:
+        0 0 12px rgba(37, 99, 235, 0.4),
+        0 4px 16px rgba(37, 99, 235, 0.3);
+      transition: box-shadow 0.25s, transform 0.15s, background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      box-shadow:
+        0 0 18px rgba(37, 99, 235, 0.55),
+        0 6px 20px rgba(37, 99, 235, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary .arrow {
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* ── TRUST BADGES ── */
+    .trust-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .trust-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #8b9dbc;
+    }
+
+    .trust-list li::before {
+      content: '✔';
+      color: #3b9eff;
+      font-size: 12px;
+    }
+
+    /* ── RIGHT COLUMN ── */
+    .hero-right {
+      flex: 1;
+      max-width: 540px;
+      position: relative;
+    }
+
+    /* Outer wrap — position relative for absolute cards, NO overflow hidden */
+    .hero-image-wrap {
+      position: relative;
+    }
+
+    /* Inner clip — rounds corners and clips the image only */
+    .image-clip {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow:
+        0 0 60px rgba(59, 158, 255, 0.07),
+        0 20px 60px rgba(0, 0, 0, 0.55);
+      position: relative;
+    }
+
+    .image-clip img {
+      width: 100%;
+      max-height: 420px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ── FLOATING CARDS ── */
+    .float-card {
+      position: absolute;
+      background: rgba(13, 17, 35, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 16px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    /* TOP-LEFT — floats over the top-left of the image */
+    .float-card-top {
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .flash-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: #2563eb;
+      border-radius: 50%;
+      font-size: 14px;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+    }
+
+    .float-card-top .card-text .label {
+      font-size: 11px;
+      color: #8b9dbc;
+      margin-bottom: 2px;
+    }
+
+    .float-card-top .card-text .value {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* BOTTOM-RIGHT — overlaps the bottom-right corner of the image */
+    .float-card-bottom {
+      bottom: 10px;
+      right: 20px;
+      text-align: right;
+    }
+
+    .float-card-bottom .label {
+      font-size: 10px;
+      color: #8b9dbc;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .float-card-bottom .suggestion {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        padding: 56px 6%;
+        gap: 48px;
+        min-height: unset;
+        text-align: center;
+      }
+
+      .hero-left {
+        max-width: 100%;
+      }
+
+      .hero-subtitle {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .trust-list {
+        justify-content: center;
+      }
+
+      .hero-right {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 36px 5%; }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .float-card-bottom .suggestion {
+        font-size: 12px;
+      }
+    }
+/*------------end hero1--------------*/
+
+/*-----------start hero2------------*/
+.stats-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap; /* عشان يكون ريسبونشيف */
+      padding: 40px 20px;
+      background-color: #1111112d;
+      border-radius: 60px;
+    }
+
+    .stat {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .stat h2 {
+      font-size: 3rem; /* أكبر */
+      font-weight: bold; /* غامق */
+      color: #4da6ff; /* أزرق للأرقام */
+      margin: 0;
+    }
+
+    .stat p {
+      font-size: 1.2rem;
+      color: #ccc; /* رمادي للنص */
+      margin-top: 10px;
+    }
+/*-------end her02 --------------*/
+/*-------start div word----*/
+.bannerr {
+      color: #fff;
+      padding: 50px 20px; /* مسافات أكبر */
+      text-align: center;
+    }
+
+.bannerr h1 {
+      font-size: 3rem; /* أكبر */
+      font-weight: 700; /* غامق */
+      margin-bottom: 14px;
+      line-height: 1.4;
+      color: #e6e6e6; /* أبيض فاتح */
+    }
+.bannerr span{
+    font-weight: 600;
+    font-size: 2.8rem;
+    color: #4da6ff;
+    
+}
+    .bannerr p {
+      font-size: 1.3rem;
+      color: #b3b3b3; /* رمادي أفتح */
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .banner h1 {
+        font-size: 2.2rem;
+      }
+      .banner p {
+        font-size: 1.1rem;
+      }
+    }
+/*------end div word ----------*/
+
+/*------start 6 div-------*/
+.features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 60px;
+    }
+    .feature {
+      background-color: #1111112d;
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%; /* دائرة */
+      background-color: #22222241;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .icon svg {
+      width: 40px;
+      height: 40px;
+      fill: #3399ff; /* أزرق فاتح */
+      transition: fill 0.3s ease;
+    }
+
+    .icon:hover {
+      background-color: #1a1a1a; /* خلفية أغمق عند الهوفر */
+      box-shadow: 0 0 15px #66ccff; /* Glow أزرق فاتح */
+    }
+    .feature h3 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #eee;
+    }
+    .feature p {
+      font-size: 1rem;
+      color: #ccccccaf;
+      line-height: 1.6;
+    }
+    @media (max-width: 992px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+/*-------end 6 div--------*/
+
+/*------start 3 div ---------*/
+.testimonials {
+      padding: 60px;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: #e6e6e6;
+    }
+.testimonials h2 span.test1{
+    color: #4da6ff;
+}
+    .testimonial-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .testimonial {
+      background-color: #1111112d;
+      border-radius: 10px;
+      padding: 30px 25px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial p {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #3399ff; /* أزرق فاتح */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .author span {
+      font-size: 0.95rem;
+      color: #999;
+      font-style: italic;
+    }
+
+    @media (max-width: 992px) {
+      .testimonial-boxes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .testimonial-boxes {
+        grid-template-columns: 1fr;
+      }
+    }
+/*-------end 3 div --------*/
+/**/
+.banner {
+      width: 70%;                 /* العرض كامل */
+      min-height: 280px;           /* الطول قصير */
+      background-color: #1111112d;
+      text-align: center;          /* المحتوى بالنص */
+      padding: 40px 20px;          /* مسافة داخلية متوازنة */
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;     /* المحتوى بالنص عموديًا */
+      align-items: center;         /* المحتوى بالنص أفقيًا */
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+
+    .icon {
+      margin-bottom: 20px;
+    }
+
+    .icon i {
+      font-size: 60px;       /* حجم الأيقونة مضبوط */
+      color: #3399ff;        /* الأزرق الفاتح */
+    }
+
+    .banner h1 {
+      font-size: 2.6rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .banner p {
+      font-size: 1rem;
+      color: #b3b3b3;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      max-width: 700px;      /* يحدد عرض النص */
+    }
+
+    .banner button {
+      background-color: #3399ff;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .banner button:hover {
+      background-color: #66ccffd3;
+      box-shadow: 0 0 15px #66ccff;
+    }
+
+    @media (max-width: 768px) {
+      .banner h1 {
+        font-size: 2rem;
+      }
+      .banner p {
+        font-size: 1rem;
+      }
+      .banner button {
+        font-size: 0.95rem;
+        padding: 10px 24px;
+      }
+    }
+/**/
+/*--------start footer ----------*/
+  footer {
+      width: 100%;
+      text-align: center;          /* النص بالنص */
+      padding: 80px 10px 40px 10px;          /* الطول قصير */
+      position: relative;
+      bottom: 0;
+    }
+
+    footer p {
+      color: #eee;
+      font-size: 1rem;
+      margin: 0;
+    }
+/*--------end footer -----------*/

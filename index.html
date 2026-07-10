@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/three.css">
+<title>Study Planner</title>
+</head>
+<body>
+
+<div class="All">
+<header class="nav">
+  <div class="navbar">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L13.09 8.26L19 6L15.45 11.25L22 12L15.45 12.75L19 18L13.09 15.74L12 22L10.91 15.74L5 18L8.55 12.75L2 12L8.55 11.25L5 6L10.91 8.26L12 2Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="logo-text">SmartStudy</span>
+    </div>
+  </div>
+
+  <div class="list">
+    <ul>
+      <li><a href="#target-text" data-en="Feature" data-ar="المميزات">Feature</a></li>
+      <li><a href="#state" data-en="Stats" data-ar="الإحصائيات">Stats</a></li>
+      <li><a href="#review" data-en="Reviews" data-ar="آراء الطلاب">Reviews</a></li>
+    </ul>
+  </div>
+
+  <div class="btn1">
+    <a class="bt" href="#" role="button" id="lang-toggle">
+      <i class="fa-solid fa-language"></i> <span id="lang-text">العربية</span>
+    </a>
+    <a class="btn btn-primary" href="dashboard.html" role="button" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</a>
+  </div>
+</header>
+</div>
+
+<section class="hero">
+  <!-- ══ LEFT ══ -->
+  <div class="hero-left">
+    <span class="badge">
+      <span class="badge-star">✦</span>
+      <span data-en="AI Productivity for University" data-ar="إنتاجية بالذكاء الاصطناعي للجامعة">AI Productivity for University</span>
+    </span>
+
+    <h1 class="hero-title"
+        data-en-html="Study <span class='highlight'>smarter,</span><br> not harder."
+        data-ar-html="ادرس <span class='highlight'>بذكاء،</span><br> مش بجهد زايد.">
+      Study <span class="highlight">smarter,</span><br>
+      not harder.
+    </h1>
+
+    <p class="hero-subtitle"
+       data-en="A futuristic academic OS that schedules your week with AI, keeps you focused, and detects burnout before it hits."
+       data-ar="نظام أكاديمي مستقبلي بيرتب أسبوعك بالذكاء الاصطناعي، يخليك مركّز، وبيكتشف الإرهاق قبل ما يصير.">
+      A futuristic academic OS that schedules your week with AI, keeps you focused, and detects burnout before it hits.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="dashboard.html" class="btn-primary" id="btn-start">
+        <span data-en="Start free" data-ar="ابدأ مجانًا">Start free</span> <span class="arrow">→</span>
+      </a>
+      <a href="signup.html" class="btn-secondary" id="btn-signin" data-en="Sign in" data-ar="تسجيل الدخول">Sign in</a>
+    </div>
+
+    <ul class="trust-list">
+      <li data-en="Free forever plan" data-ar="خطة مجانية للأبد">Free forever plan</li>
+      <li data-en="No credit card" data-ar="بدون بطاقة ائتمان">No credit card</li>
+      <li data-en="Setup in 60s" data-ar="إعداد خلال 60 ثانية">Setup in 60s</li>
+    </ul>
+  </div>
+
+  <!-- ══ RIGHT ══ -->
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      <div class="float-card float-card-top">
+        <span class="flash-icon">⚡</span>
+        <div class="card-text">
+          <div class="label" data-en="Focus streak" data-ar="أيام التركيز المتتالية">Focus streak</div>
+          <div class="value" data-en="14 days 🔥" data-ar="14 يوم 🔥">14 days 🔥</div>
+        </div>
+      </div>
+
+      <div class="image-clip">
+        <img src="image/hero_study_room_1779701119443.png" alt="Futuristic AI-powered study room with glowing yellow neon elements" />
+        <div class="float-card float-card-bottom">
+          <div class="label" data-en="AI Suggestion" data-ar="اقتراح الذكاء الاصطناعي">AI Suggestion</div>
+          <div class="suggestion" data-en="Review CS-201 → 45 min" data-ar="مراجعة CS-201 ← 45 دقيقة">Review CS-201 → 45 min</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="state" class="stats-container">
+  <div class="stat">
+    <h2>3.4×</h2>
+    <p data-en="Faster planning" data-ar="تخطيط أسرع">Faster planning</p>
+  </div>
+  <div class="stat">
+    <h2>87%</h2>
+    <p data-en="Task completion" data-ar="إنجاز المهام">Task completion</p>
+  </div>
+  <div class="stat">
+    <h2>-42%</h2>
+    <p data-en="Procrastination" data-ar="التسويف">Procrastination</p>
+  </div>
+  <div class="stat">
+    <h2>12k+</h2>
+    <p data-en="Students" data-ar="طالب">Students</p>
+  </div>
+</section>
+
+<div class="bannerr">
+  <h1 data-en-html="Everything you need to <br><span class='ban1'>dominate the semester</span>"
+      data-ar-html="كل اللي بتحتاجه عشان <br><span class='ban1'>تتفوق على الفصل الدراسي</span>">
+    Everything you need to <br><span class="ban1">dominate the semester</span>
+  </h1>
+  <p data-en="Built around how students actually work — deadlines, deep work, and recovery."
+     data-ar="مصمم حسب طريقة شغل الطلاب الحقيقية — المواعيد النهائية، التركيز العميق، والراحة.">
+    Built around how students actually work — deadlines, deep work, and recovery.
+  </p>
+</div>
+
+<section id="target-text" class="features">
+  <div class="feature">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+    </div>
+    <h3 data-en="AI Study Scheduler" data-ar="مجدول الدراسة الذكي">AI Study Scheduler</h3>
+    <p data-en="Personalized plans that adapt to your hours, deadlines, and energy."
+       data-ar="خطط مخصصة تتأقلم مع وقتك، مواعيدك النهائية، ومستوى طاقتك.">
+      Personalized plans that adapt to your hours, deadlines, and energy.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.41 0 8-3.59 8-8s-3.59-8-8-8-8 3.59-8 8 3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm-.5 3h1v5l4.25 2.52-.5.86L11.5 14V9z"/></svg>
+    </div>
+    <h3 data-en="Pomodoro Focus Mode" data-ar="وضع التركيز بومودورو">Pomodoro Focus Mode</h3>
+    <p data-en="Deep-focus 25/5 timer with ambient soundscapes and session reports."
+       data-ar="مؤقت تركيز عميق 25/5 مع أصوات محيطة وتقارير للجلسات.">
+      Deep-focus 25/5 timer with ambient soundscapes and session reports.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4l-1.41-1.42L12 12.17l-2.59-2.58L9 11zM5 19h14v2H5v-2z"/></svg>
+    </div>
+    <h3 data-en="Smart Task Manager" data-ar="مدير مهام ذكي">Smart Task Manager</h3>
+    <p data-en="Assignments, exams, projects with priority, difficulty & subtasks."
+       data-ar="واجبات، امتحانات، مشاريع مع أولوية، صعوبة، ومهام فرعية.">
+      Assignments, exams, projects with priority, difficulty & subtasks.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17h2v-7H3v7zm4 0h2V7H7v10zm4 0h2v-4h-2v4zm4 0h2V4h-2v13zm4 0h2v-9h-2v9z"/></svg>
+    </div>
+    <h3 data-en="Productivity Analytics" data-ar="تحليلات الإنتاجية">Productivity Analytics</h3>
+    <p data-en="Heatmaps, focus patterns, completion graphs and AI insights."
+       data-ar="خرائط حرارية، أنماط التركيز، رسوم بيانية للإنجاز، ورؤى ذكاء اصطناعي.">
+      Heatmaps, focus patterns, completion graphs and AI insights.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+    </div>
+    <h3 data-en="Burnout Detection" data-ar="كشف الإرهاق">Burnout Detection</h3>
+    <p data-en="Detects overload and recommends breaks before you crash."
+       data-ar="بيكتشف الضغط الزايد وبيقترح استراحات قبل ما تنهار.">
+      Detects overload and recommends breaks before you crash.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm4.3-3c0 2.49-2.01 4.5-4.3 4.5S7.7 13.49 7.7 11H6c0 3.04 2.13 5.58 5 6.32V20H9v2h6v-2h-2v-2.68c2.87-.74 5-3.28 5-6.32h-1.7z"/></svg>
+    </div>
+    <h3 data-en="Voice Commands" data-ar="أوامر صوتية">Voice Commands</h3>
+    <p data-en="Capture tasks and ideas with hands-free speech-to-text."
+       data-ar="سجّل مهامك وأفكارك بدون ما تستخدم إيدك، بس بصوتك.">
+      Capture tasks and ideas with hands-free speech-to-text.
+    </p>
+  </div>
+</section>
+
+<section id="review" class="testimonials">
+  <h2 data-en-html="Loved by <span class='test1'>top students</span>"
+      data-ar-html="بيحبوه <span class='test1'>أفضل الطلاب</span>">
+    Loved by <span class="test1">top students</span>
+  </h2>
+
+  <div class="testimonial-boxes">
+    <div class="testimonial">
+      <p data-en="“The AI planner literally rebuilt my finals week. I went in calm.”"
+         data-ar="«المخطط الذكي غيّر أسبوع امتحاناتي بالكامل. دخلت الامتحانات وأنا مرتاحة.»">
+        “The AI planner literally rebuilt my finals week. I went in calm.”
+      </p>
+      <div class="author">
+        <div class="avatar">M</div>
+        <span data-en="Maya R., CS, Stanford" data-ar="مايا ر.، علوم حاسوب، ستانفورد">Maya R., CS, Stanford</span>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p data-en="“Burnout alerts saved me. I sleep again and my grades went up.”"
+         data-ar="«تنبيهات الإرهاق أنقذتني. رجعت أنام منيح وعلاماتي ارتفعت.»">
+        “Burnout alerts saved me. I sleep again and my grades went up.”
+      </p>
+      <div class="author">
+        <div class="avatar">A</div>
+        <span data-en="Ari K., Med, NYU" data-ar="آري ك.، طب، جامعة نيويورك">Ari K., Med, NYU</span>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p data-en="“Focus room + voice tasks = the workflow I always wanted.”"
+         data-ar="«غرفة التركيز + المهام الصوتية = أسلوب العمل اللي كنت دايمًا بدوّر عليه.»">
+        “Focus room + voice tasks = the workflow I always wanted.”
+      </p>
+      <div class="author">
+        <div class="avatar">D</div>
+        <span data-en="Diego L., Engineering, MIT" data-ar="دييغو ل.، هندسة، MIT">Diego L., Engineering, MIT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <div class="icon">
+    <i class="fa-solid fa-book"></i>
+  </div>
+  <h1 data-en="Your best semester starts now" data-ar="أفضل فصل دراسي ليك بيبدأ هلق">Your best semester starts now</h1>
+  <p data-en="Join thousands of students using AI to study less and achieve more."
+     data-ar="انضم لآلاف الطلاب اللي بيستخدموا الذكاء الاصطناعي يدرسوا أقل ويحققوا أكتر.">
+    Join thousands of students using AI to study less and achieve more.
+  </p>
+  <button data-en="Get started for free →" data-ar="ابدأ مجانًا ←">Get started for free →</button>
+</section>
+
+<footer>
+  <p data-en="© 2026 SmartStudy. Built for the future of learning."
+     data-ar="© 2026 سمارت ستدي. مصمم لمستقبل التعلّم.">
+    © 2026 SmartStudy. Built for the future of learning.
+  </p>
+</footer>
+
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartStudy - Focus Room</title>
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/two.css">
+</head>
+<body>
+
+<button class="toggle-btn"><i class="fas fa-bars"></i></button>
+
+<div class="sidebar" id="sidebar">
+<div class="logo">
+   <a href="index.html">
+    <div class="logo-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 8.26L19 6L15.45 11.25L22 12L15.45 12.75L19 18L13.09 15.74L12 22L10.91 15.74L5 18L8.55 12.75L2 12L8.55 11.25L5 6L10.91 8.26L12 2Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+      </svg>
+    </div>
+   </a>
+    <span class="logo-text">SmartStudy</span>
+</div>
+<ul class="menu">
+    <li><a href="dashboard.html" style="color:inherit; text-decoration:none;"><i class="fas fa-home"></i> Dashboard</a></li>
+    <li><a href="courses.html" style="color:inherit; text-decoration:none;"><i class="fas fa-book"></i> Courses</a></li>
+    <li><a href="tasks.html" style="color:inherit; text-decoration:none;"><i class="fas fa-tasks"></i> Tasks</a></li>
+    <li><a href="ai-planner.html" style="color:inherit; text-decoration:none;"><i class="fas fa-robot"></i> AI Planner</a></li>
+    <li class="active"><a href="focus-room.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bullseye"></i> Focus Room</a></li>
+    <li><a href="analytics.html" style="color:inherit; text-decoration:none;"><i class="fas fa-chart-line"></i> Analytics</a></li>
+    <li><i class="fas fa-cog"></i> Settings</li>
+</ul>
+<div class="language">
+    <button><i class="fas fa-language"></i> العربية</button>
+</div>
+<div class="profile-box">
+    <div class="profile-header">
+      <div class="profile-icon">A</div>
+      <div class="profile-text">
+        <p class="profile-name">Dania aborass</p>
+        <p class="profile-email">aboradania070@gmail.com</p>
+      </div>
+    </div>
+    <div class="signout">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Sign out</span>
+    </div>
+</div>
+</div>
+
+<div class="main-content" style="padding-top: 30px;">
+  
+  <div class="greeting-box" style="margin-bottom: 25px;">
+    <p class="time-text">Deep Work Space</p>
+    <p class="name-line">غرفة التركيز والإنتاجية ⏱️🧘🏻‍♀️</p>
+    <p class="sub-text">ابتعدي عن المشتتات، حددي الأوقات التي تناسب نمط دراستكِ، وابدئي بالإنجاز الفوري.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+    
+    <div class="box" style="padding: 30px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <button id="btn-work" style="background: #0D6EFD; color: white; border: none; padding: 6px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 13px;">مذاكرة</button>
+        <button id="btn-break" style="background: #0d1b2e; color: #ccc; border: 1px solid #2c3d52; padding: 6px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 13px;">راحة</button>
+      </div>
+
+      <div id="timer-display" style="font-size: 70px; font-weight: bold; color: #fff; font-family: monospace; margin-bottom: 20px; letter-spacing: 2px;">25:00</div>
+
+      <div style="display: flex; gap: 15px; width: 100%; justify-content: center;">
+        <button id="btn-start" style="background: #2a9d8f; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; width: 120px;"><i class="fas fa-play"></i> ابدأ</button>
+        <button id="btn-pause" style="background: #e0a800; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; width: 120px; display: none;"><i class="fas fa-pause"></i> مؤقت</button>
+        <button id="btn-reset" style="background: #e63946; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px;"><i class="fas fa-redo"></i> إعادة</button>
+      </div>
+    </div>
+
+    <div class="box" style="padding: 25px; background: #1b263b; border-radius: 12px; border: 1px solid #2c3d52; display: flex; flex-direction: column; gap: 15px; direction: rtl;">
+      
+      <div>
+        <h3 style="margin: 0 0 12px 0; font-size: 16px; color: #fff;"><i class="fas fa-sliders-h" style="color: #2a9d8f;"></i> تخصيص توقيت بومودورو (بالدقائق)</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label style="font-size: 12px; color: #ccc; display: block; margin-bottom: 5px;">وقت المذاكرة</label>
+            <input type="number" id="input-work-time" min="1" max="180" value="25" style="width:100%; padding:8px; border-radius:6px; border:1px solid #3a4f66; background:#0d1b2e; color:#fff; box-sizing: border-box;">
+          </div>
+          <div>
+            <label style="font-size: 12px; color: #ccc; display: block; margin-bottom: 5px;">وقت الراحة</label>
+            <input type="number" id="input-break-time" min="1" max="60" value="5" style="width:100%; padding:8px; border-radius:6px; border:1px solid #3a4f66; background:#0d1b2e; color:#fff; box-sizing: border-box;">
+          </div>
+        </div>
+        <button id="btn-apply-settings" style="width:100%; margin-top:10px; background:#0D6EFD; color:white; border:none; padding:8px; border-radius:6px; font-weight:bold; cursor:pointer; font-size:13px;">تطبيق الوقت الجديد</button>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #2c3d52; margin: 5px 0;">
+
+      <div>
+        <h3 style="margin: 0 0 10px 0; font-size: 16px; color: #fff;"><i class="fas fa-thumbtack" style="color: #0D6EFD;"></i> ماذا ستنجزين الآن؟</h3>
+        <select id="focus-task-select" style="width:100%; padding:11px; border-radius:8px; border:1px solid #3a4f66; background:#0d1b2e; color:#fff; box-sizing: border-box; font-size: 14px;">
+          <option value="">-- اختاري مهمة من مهامك الحالية --</option>
+        </select>
+      </div>
+
+      <div>
+        <h3 style="margin: 0 0 10px 0; font-size: 16px; color: #fff;"><i class="fas fa-music" style="color: #2a9d8f;"></i> أصوات الخلفية المساعدة</h3>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #0d1b2e; padding: 10px 15px; border-radius: 8px; border: 1px solid #2c3d52;">
+            <span style="color: #ccc; font-size: 13px;"><i class="fas fa-cloud-showers-heavy" style="margin-left: 5px;"></i> صوت مطر هادئ</span>
+            <input type="checkbox" id="ambient-rain" style="width: 18px; height: 18px; cursor: pointer;">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #0d1b2e; padding: 10px 15px; border-radius: 8px; border: 1px solid #2c3d52;">
+            <span style="color: #ccc; font-size: 13px;"><i class="fas fa-mug-hot" style="margin-left: 5px;"></i> مقهى هادئ (White Noise)</span>
+            <input type="checkbox" id="ambient-cafe" style="width: 18px; height: 18px; cursor: pointer;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<audio id="audio-rain" loop src="https://assets.mixkit.co/active_storage/sfx/2433/2433-84.wav"></audio>
+<audio id="audio-cafe" loop src="https://assets.mixkit.co/active_storage/sfx/2458/2458-84.wav"></audio>
+<audio id="audio-bell" src="https://assets.mixkit.co/active_storage/sfx/911/911-84.wav"></audio>
+
+<script src="js/focus-room.js"></script>
+</body>
+</html>
